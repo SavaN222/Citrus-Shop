@@ -20,6 +20,11 @@
                 <img class="nav-logo" src="<?php echo URLROOT; ?>/images/logo.svg" width="85" height="85" alt="logo">
             </li>
         </ul>
+        <ul class="nav navbar-nav">
+            <li class="nav-item">
+                <a href="" class="nav-link text-success">LOGIN</a>
+            </li>
+        </ul>
     </div>
 </div>
 </nav>

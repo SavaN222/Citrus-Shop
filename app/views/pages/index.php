@@ -138,7 +138,7 @@
     </section> <!-- comments -->
     <section id="postComment" class="mt-3 bg-light">
         <h3 class="text-center text-dark">Share Your Expirience About Citrus!</h3>
-        <form action="#">
+        <form action="#" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="name">Name:</label>
                 <input type="text" name="name" class="form-control">
@@ -148,8 +148,15 @@
                 <input type="email" name="email" class="form-control">
             </div>
             <div class="form-group">
+                <label for="avatar">Avatar(Optional):</label>
+                <input type="file" name="avatar" class="form-control">
+            </div>
+            <div class="form-group">
                 <label for="comment">Comment:</label>
                 <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn w-100 btn-info" value="SUBMIT">
             </div>
         </form>
     </section> <!-- postComment -->
