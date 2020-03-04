@@ -1,3 +1,8 @@
+/*Navbar*/
+.nav-logo {
+    margin-right: 250px;
+}
+/*Home-Products*/
 .card img {
     height: 250px;
     transition: transform .2s;
@@ -5,3 +10,12 @@
 .card img:hover {
     transform: scale(1.1);
 }
+/*Home-Comments*/
+#comments {
+    background-color: #21855F;
+    padding: 100px;
+}
+#comments .carousel-item img {
+    height: 200px;
+}
+/*Home-PostComment*/
