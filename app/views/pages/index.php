@@ -137,25 +137,25 @@
         </div>
     </section> <!-- comments -->
     <section id="postComment" class="mt-3 bg-light">
-        <h3 class="text-center text-dark">Share Your Expirience About Citrus!</h3>
+        <h3 class="text-center text-dark pt-4">Share Your Expirience About Citrus!</h3>
         <form action="#" method="post" enctype="multipart/form-data">
-            <div class="form-group">
+            <div class="form-group px-2">
                 <label for="name">Name:</label>
                 <input type="text" name="name" class="form-control">
             </div>
-            <div class="form-group">
+            <div class="form-group px-2">
                 <label for="email">Email:</label>
                 <input type="email" name="email" class="form-control">
             </div>
-            <div class="form-group">
+            <div class="form-group px-2">
                 <label for="avatar">Avatar(Optional):</label>
                 <input type="file" name="avatar" class="form-control">
             </div>
-            <div class="form-group">
+            <div class="form-group px-2">
                 <label for="comment">Comment:</label>
                 <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
             </div>
-            <div class="form-group">
+            <div class="form-group px-2">
                 <input type="submit" class="btn w-100 btn-info" value="SUBMIT">
             </div>
         </form>

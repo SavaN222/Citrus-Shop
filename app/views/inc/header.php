@@ -9,6 +9,8 @@
     <script src="https://kit.fontawesome.com/4f38721301.js"></script>
     <!-- Custom Css -->
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/style.css">
+    <!-- favicon -->
+    <link rel="icon" href="<?php echo URLROOT; ?>/images/logo.svg">
 </head>
 <body>
 <!-- navbar -->

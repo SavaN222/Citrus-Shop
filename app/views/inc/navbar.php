@@ -22,7 +22,7 @@
         </ul>
         <ul class="nav navbar-nav">
             <li class="nav-item">
-                <a href="" class="nav-link text-success">LOGIN</a>
+                <a href="<?php echo URLROOT; ?>/admin/adminLogin" class="nav-link text-success">LOGIN</a>
             </li>
         </ul>
     </div>
