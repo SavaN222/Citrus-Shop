@@ -52,5 +52,4 @@ class HomeController extends Controller
             redirect('home/index/#postComment');
         }
     }
-    
 }

@@ -31,7 +31,11 @@ class AdminController extends Controller
         return $this->view('admin/index', $data);
     }
 
-    public function approveComment($id)
+    /**
+     * Approve user comment
+     * @param int $id 
+     */
+    public function approveComment(int $id)
     {
           if ($this->commentModel->approveComment($id)) {
             $_SESSION['success'] = 'Comment Approved!';
@@ -42,7 +46,12 @@ class AdminController extends Controller
         }
     }
 
-    public function deleteComment($id)
+    /**
+     * Delete user comment
+     * @param int $id 
+     * @return type
+     */
+    public function deleteComment(int $id)
     {
           if ($this->commentModel->deleteComment($id)) {
             $_SESSION['success'] = 'Comment Deleted!';
@@ -79,7 +88,7 @@ class AdminController extends Controller
     }
 
     /**
-     * Logout method for admin, unset and destroy sessions
+     * Logout method for admin, unset and destroy sessions.
      */
     public function adminLogout()
     {

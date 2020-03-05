@@ -11,8 +11,8 @@ class Comment
 {
     private $db;
 
-    private const ON_HOLD = '0';
-    private const APPROVE = '1';
+    private const ON_HOLD = '0'; // default comment status, show only in admin dashboard.
+    private const APPROVE = '1'; // approve, show only in home page.
 
 
     public function __construct()
@@ -56,7 +56,11 @@ class Comment
         return $result;
     }
 
-    public function approveComment($id)
+    /**
+     * Approve comment, set status to 1(APPROVE)
+     * @param int $id 
+     */
+    public function approveComment(int $id)
     {
         $this->db->query('UPDATE comments SET status = :status WHERE id = :id');
 
@@ -68,7 +72,12 @@ class Comment
         return $result;
     }
 
-    public function deleteComment($id)
+    /**
+     * Delete comment from database.
+     * @param int $id 
+     * @return type
+     */
+    public function deleteComment(int $id)
     {
         $this->db->query('DELETE FROM comments WHERE id = :id');
 
@@ -79,6 +88,9 @@ class Comment
         return $result;
     }
 
+    /**
+     * Get only approved comments.
+     */
     public function getComments()
     {
         $this->db->query('SELECT * FROM comments WHERE status = :status ');
