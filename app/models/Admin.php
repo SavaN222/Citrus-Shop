@@ -17,7 +17,7 @@ class Admin
      */
     public function adminLogin()
     {
-        $data = Validation::sanitizeLoginData();
+        $data = LoginValidation::sanitizeLoginData();
 
         $this->db->query('SELECT * FROM admins WHERE name = :name AND password = :password');
 

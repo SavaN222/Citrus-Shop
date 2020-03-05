@@ -1,5 +1,10 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
     <div class="container pt-5 pb-5">
+        <?php if (isset($_SESSION['success'])) { ?>
+            <div class="alert alert-success" role="alert">
+              <?php echo $_SESSION['success']; unset($_SESSION['success']); ?>
+            </div>
+        <?php } ?>
         <div class="row">
             <div id="newComments" class="col-lg-6">
             <h3 class="text-center text-info">NEW COMMENTS</h3>
@@ -20,21 +25,21 @@
 
             <div id="newProduct" class="col-lg-6">
                 <h3 class="text-center text-info">ADD NEW PRODUCT</h3>
-                <form action="#" method="post" enctype="multipart/form-data">
+                <form action="<?php echo URLROOT; ?>/home/create" method="POST" enctype="multipart/form-data">
                     <div class="form-group px-2">
                         <label for="pname">Product Name:</label>
-                        <input type="text" name="pname" class="form-control">
+                        <input type="text" name="pname" class="form-control" required="">
                     </div>
                     <div class="form-group px-2">
                         <label for="description">Description:</label>
-                        <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                        <textarea class="form-control" id="description" name="description" rows="3" required=""></textarea>
                     </div>
                     <div class="form-group px-2">
                         <label for="image">Product Image:</label>
-                        <input type="file" name="image" class="form-control-file">
+                        <input type="file" name="image" class="form-control-file" required="">
                     </div>
                     <div class="form-group px-2">
-                        <input type="submit" class="btn w-100 btn-info" value="SUBMIT">
+                        <input type="submit" name="submit" class="btn w-100 btn-info" value="SUBMIT">
                     </div>
                 </form>
             </div>

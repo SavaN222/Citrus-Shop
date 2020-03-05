@@ -12,7 +12,7 @@
 }
 /*Home-Comments*/
 #comments {
-    background-color: #21855F;
+    background-color: rgba(33,133,95,0.9);
     padding: 100px;
 }
 #comments .carousel-item img {

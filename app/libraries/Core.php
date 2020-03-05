@@ -9,7 +9,7 @@ namespace App\libraries;
  */
 class Core
 {
-    protected $currentController = 'PagesController';
+    protected $currentController = 'HomeController';
     protected $currentMethod = 'index';
     protected $params = [];
 
