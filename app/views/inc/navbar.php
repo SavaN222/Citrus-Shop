@@ -6,13 +6,16 @@
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="nav navbar-nav">
             <li class="nav-item">
-                <a class="nav-link text-dark" href="#">Home</a>
+                <a class="nav-link text-dark" href="<?php echo URLROOT; ?>">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" href="#products">Products</a>
+                <a class="nav-link text-dark" href="<?php echo URLROOT; ?>/#products">Products</a>
             </li>
              <li class="nav-item">
-                <a class="nav-link text-dark" href="#comments">Testimonials</a>
+                <a class="nav-link text-dark" href="<?php echo URLROOT; ?>/#comments">Testimonials</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" href="<?php echo URLROOT; ?>/#postComment">Contact</a>
             </li>
         </ul>
         <ul class="nav navbar-nav mx-auto">
@@ -21,9 +24,18 @@
             </li>
         </ul>
         <ul class="nav navbar-nav">
-            <li class="nav-item">
-                <a href="<?php echo URLROOT; ?>/admin/adminLogin" class="nav-link text-success">LOGIN</a>
-            </li>
+            <?php if (isLoggedIn()): ?>
+                <li class="nav-item">
+                    <a class="nav-link text-success" href="<?php echo URLROOT; ?>/admin/adminLogout">LOGOUT</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-danger" href="<?php echo URLROOT; ?>/admin/index">DASHBOARD</a>
+                </li>
+                <?php else: ?>
+                    <li class="nav-item">
+                        <a href="<?php echo URLROOT; ?>/admin/adminLogin" class="nav-link text-success">LOGIN</a>
+                    </li>
+            <?php endif; ?>
         </ul>
     </div>
 </div>

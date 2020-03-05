@@ -1,7 +1,8 @@
 <?php
 
 /**
- * Shorter function for redirect
+ * URL Helper
+ * Description: Shorter function for redirect
  * @param string $page 
  */
 function redirect(string $page): void

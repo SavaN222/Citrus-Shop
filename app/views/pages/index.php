@@ -149,7 +149,7 @@
             </div>
             <div class="form-group px-2">
                 <label for="avatar">Avatar(Optional):</label>
-                <input type="file" name="avatar" class="form-control">
+                <input type="file" name="avatar" class="form-control-file">
             </div>
             <div class="form-group px-2">
                 <label for="comment">Comment:</label>

@@ -1,5 +1,8 @@
 <?php
-
+/*
+* Config File
+* Description: Config MySQL database information, and create useful constant.
+*/
 // DB Params
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');

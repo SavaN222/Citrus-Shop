@@ -14,4 +14,5 @@
 </head>
 <body>
 <!-- navbar -->
+
 <?php include APPROOT . '/views/inc/navbar.php'; ?>
