@@ -10,16 +10,52 @@ class AdminController extends Controller
     public function __construct()
     {
         $this->adminModel = $this->model('Admin');
+        $this->commentModel = $this->model('Comment');
     }
 
+    /**
+     * Display admin dashboard and list new comments
+     */
     public function index()
     {
         if (!isLoggedIn()) {
             return $this->view('admin/login');
         }
-        return $this->view('admin/index');
+
+        $comments = $this->commentModel->getAdminComments();
+
+        $data = [
+            'comments' => $comments
+        ];
+
+        return $this->view('admin/index', $data);
     }
 
+    public function approveComment($id)
+    {
+          if ($this->commentModel->approveComment($id)) {
+            $_SESSION['success'] = 'Comment Approved!';
+            redirect('admin/index');
+        } else {
+            $_SESSION['err'] = 'Error';
+            redirect('admin/index');
+        }
+    }
+
+    public function deleteComment($id)
+    {
+          if ($this->commentModel->deleteComment($id)) {
+            $_SESSION['success'] = 'Comment Deleted!';
+            redirect('admin/index');
+        } else {
+            $_SESSION['err'] = 'Error';
+            redirect('admin/index');
+        }
+    }
+
+    /**
+     * Login page for admin
+     */
     public function adminLogin()
     {
         if (!isset($_POST['submit'])) {
@@ -42,6 +78,9 @@ class AdminController extends Controller
         }
     }
 
+    /**
+     * Logout method for admin, unset and destroy sessions
+     */
     public function adminLogout()
     {
         logOut();

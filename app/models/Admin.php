@@ -1,7 +1,7 @@
 <?php
 
 use App\libraries\Database; 
-use App\helpers\Validation;
+use App\helpers\LoginValidation;
 
 class Admin
 {

@@ -18,4 +18,8 @@
 #comments .carousel-item img {
     height: 200px;
 }
-/*Home-PostComment*/
+/*Admin-Home-Comment*/
+#newComments {
+    overflow: auto;
+    height: 300px;
+}

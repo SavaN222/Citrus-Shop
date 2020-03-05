@@ -2,7 +2,7 @@
 
 namespace App\helpers;
 
-class ProductValidation
+class CommentValidation
 {
     /**
      * Return sanitize product input data.
@@ -14,24 +14,27 @@ class ProductValidation
             return false;
         }
 
-        $pname = trim($_POST['pname']);
-        $description = trim($_POST['description']);
+        $name = trim($_POST['name']);
+        $email = trim($_POST['email']);
+        $text = trim($_POST['comment']);
 
-        $pname = htmlspecialchars(strip_tags($pname));
-        $description = htmlspecialchars(strip_tags($description));
+        $name = htmlspecialchars(strip_tags($name));
+        $email = htmlspecialchars(strip_tags($email));
+        $text = htmlspecialchars(strip_tags($text));
 
         $data = [
-            'pname' => $pname,
-            'description' => $description,
-            'image' => self::uploadImage($_FILES['image'])
+            'name' => $name,
+            'email' => $email,
+            'text' => $text,
+            'avatar' => self::uploadImage($_FILES['avatar'])
         ];
 
         return $data;
     }
    
     /**
-     * Check if image jpg or png and give image unique name.
-     * Move avatar image in public/images/products
+     * Check if image jpg or png and give image unique name
+     * Move avatar image in public/images/comments
      * @param array $_FILES['profilePic'] $img 
      * @return string filePath
      */
@@ -49,7 +52,7 @@ class ProductValidation
 
         if (in_array($imageExtension, $allowedExtension) && 
             in_array($img['type'], $allowedTypes)) {
-            $imagePath = 'images/products/' . $imageName;
+            $imagePath = 'images/comments/' . $imageName;
             move_uploaded_file($img['tmp_name'], $imagePath);
         }
 

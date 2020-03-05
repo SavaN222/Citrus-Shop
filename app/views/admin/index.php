@@ -7,20 +7,33 @@
         <?php } ?>
         <div class="row">
             <div id="newComments" class="col-lg-6">
+                <?php if (isset($_SESSION['success'])):?>
+            <div class="alert alert-success" role="alert">
+              <?php echo $_SESSION['success']; unset($_SESSION['success']); ?>
+            </div>
+            <?php elseif(isset($_SESSION['err'])): ?>
+            <div class="alert alert-danger" role="alert">
+              <?php echo $_SESSION['err']; unset($_SESSION['err']); ?>
+            </div>
+        <?php endif; ?>
             <h3 class="text-center text-info">NEW COMMENTS</h3>
-              <div class="list-group p-5 ">
+            <?php foreach($data['comments'] as $comment): ?>
+              <div class="list-group p-5">
                   <div href="#" class="list-group-item list-group-item-action">
                     <div class="d-flex w-100 justify-content-between">
-                      <h5 class="mb-1">Pera Petrovic</h5>
+                      <h5 class="mb-1"><?php echo $comment->user_name; ?>(<?php echo $comment->user_email; ?>)</h5>
                       <div>
-                      <a href=""><i class="fas fa-check text-success fa-lg mr-2"></i></a>
-                      <a href=""><i class="fas fa-trash text-danger fa-lg"></i></a>
+                        <form method="GET">
+                      <a href="<?php echo URLROOT; ?>/admin/approveComment/<?php echo $comment->id; ?>"><i class="fas fa-check text-success fa-lg mr-2"></i></a>
+                      <a href="<?php echo URLROOT; ?>/admin/deleteComment/<?php echo $comment->id; ?>"><i class="fas fa-trash text-danger fa-lg"></i></a>
+                      </form>
                     </div>
                     </div>
-                    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                    <p class="mb-1"><?php echo $comment->text; ?></p>
                   </div>
                   
                 </div>  
+            <?php endforeach; ?>
             </div>
 
             <div id="newProduct" class="col-lg-6">

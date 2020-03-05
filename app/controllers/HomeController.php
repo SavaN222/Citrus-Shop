@@ -7,6 +7,7 @@ class HomeController extends Controller
     public function __construct()
     {
       $this->productModel = $this->model('Product');
+      $this->commentModel = $this->model('Comment');
     }
 
     /**
@@ -15,9 +16,11 @@ class HomeController extends Controller
     public function index()
     {
         $products = $this->productModel->getProducts();
+        $comments = $this->commentModel->getComments();
         
         $data = [
-            'products' => $products
+            'products' => $products,
+            'comments' => $comments
         ];
 
         return $this->view('home/index', $data);
@@ -34,7 +37,20 @@ class HomeController extends Controller
         } else {
             die('Error');
         }
-        
+    }
+
+    /**
+     * Post Comment
+     */
+    public function postComment()
+    {
+        if ($this->commentModel->postComment()) {
+            $_SESSION['info'] = 'Your comment is send but administrator must approve it!';
+            redirect('home/index/#postComment');
+        } else {
+            $_SESSION['err'] = 'Something goes wrong, please try again!';
+            redirect('home/index/#postComment');
+        }
     }
     
 }

@@ -5,7 +5,7 @@ namespace App\helpers;
 /**
  * Validation class return clean input data
  */
-class Validation
+class LoginValidation
 {
     /**
      * Sanitize input data for admin login
